@@ -21,26 +21,26 @@
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
 %\ifcvprfinal\pagestyle{empty}\fi
-\setcounter{page}{4321}
+\setcounter{page}{1}
 \begin{document}
 
 %%%%%%%%% TITLE
-\title{\LaTeX\ Author Guidelines for CVPR Proceedings}
+\title{Music exploration using machine learning }
 
-\author{First Author\\
-Institution1\\
-Institution1 address\\
-{\tt\small firstauthor@i1.org}
+\author{Jibin Rajan Varghese\\
+Texas A\&M University\\
+400 Bizzell St, College Station, TX 77843\\
+{\tt\small jibin@tamu.edu}
 % For a paper whose authors are all at the same institution,
 % omit the following lines up until the closing ``}''.
 % Additional authors and addresses can be added with ``\and'',
 % just like the second author.
 % To save space, use either the email address or home page, not both
 \and
-Second Author\\
-Institution2\\
-First line of institution2 address\\
-{\tt\small secondauthor@i2.org}
+Mohammed Habibullah Baig\\
+Texas A\&M University\\
+400 Bizzell St, College Station, TX 77843\\
+{\tt\small habib\_baig.tamu@tamu.edu}
 }
 
 \maketitle
@@ -48,16 +48,12 @@ First line of institution2 address\\
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-   The ABSTRACT is to be in fully-justified italicized text, at the top
-   of the left-hand column, below the author and affiliation
-   information. Use the word ``Abstract'' as the title, in 12-point
-   Times, boldface type, centered relative to the column, initially
-   capitalized. The abstract is to be in 10-point, single-spaced type.
-   Leave two blank lines after the Abstract, then begin the main text.
-   Look at previous CVPR abstracts to get a feel for style and length.
+Music is complex and varies widely in beats, frequencies and structure. This experiment uses the mel-spectrogram of common songs to organize thousands of everyday tracks. We plan to use a  CNN + RNN to train a classifier to segregate neighboring songs with similar genre features from the spectrogram. The computer wasn’t given any descriptions of the music - only the audio files, and its inbuilt metadata. Finallly using a technique called t-SNE, the computer places similar songs features closer together. This in our research so far, is the world's first attempt at providing a visual and interactive map of songs that users can use in order to explore the world of music, discover and listen to genres of their preference.
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
+
+
 \section{Introduction}
 
 Please follow the steps outlined below when submitting your manuscript to
@@ -231,17 +227,7 @@ contracted to solve problem B.
 FAQ: Are acknowledgements OK?  No.  Leave them for the final copy.
 
 
-\begin{figure}[t]
-\begin{center}
-\fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
-   %\includegraphics[width=0.8\linewidth]{egfigure.eps}
-\end{center}
-   \caption{Example of caption.  It is set in Roman so that mathematics
-   (always set in Roman: $B \sin A = A \sin B$) may be included without an
-   ugly clash.}
-\label{fig:long}
-\label{fig:onecol}
-\end{figure}
+
 
 \subsection{Miscellaneous}
 
@@ -309,7 +295,7 @@ number rather than the 4321 in the example.  To do this fine the line (around
 line 23)
 \begin{verbatim}
 %\ifcvprfinal\pagestyle{empty}\fi
-\setcounter{page}{4321}
+\setcounter{page}{1}
 \end{verbatim}
 where the number 4321 is your assigned starting page.
 

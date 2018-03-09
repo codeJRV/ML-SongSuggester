@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Abstract.aux
+The style file: ieee.bst
+Database file #1: egbib.bib
+Repeated entry---line 78 of file egbib.bib
+ : @inproceedings{li2003comparative
+ :                                 ,
+I'm skipping whatever remains of this entry
+Warning--can't use both volume and number fields in bertin2011million
+You've used 14 entries,
+            2120 wiz_defined-function locations,
+            591 strings with 6238 characters,
+and the built_in function-call counts, 5771 in all, are:
+= -- 602
+> -- 215
+< -- 9
++ -- 89
+- -- 70
+* -- 376
+:= -- 872
+add.period$ -- 49
+call.type$ -- 14
+change.case$ -- 77
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 253
+empty$ -- 481
+format.name$ -- 70
+if$ -- 1287
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 14
+newline$ -- 73
+num.names$ -- 28
+pop$ -- 94
+preamble$ -- 1
+purify$ -- 63
+quote$ -- 0
+skip$ -- 188
+stack$ -- 0
+substring$ -- 420
+swap$ -- 93
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 1
+while$ -- 59
+width$ -- 16
+write$ -- 163
+(There was 1 error message)

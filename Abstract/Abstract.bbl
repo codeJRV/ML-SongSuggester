@@ -1,0 +1,88 @@
+\begin{thebibliography}{10}\itemsep=-1pt
+
+\bibitem{bertin2011million}
+T.~Bertin-Mahieux, D.~P. Ellis, B.~Whitman, and P.~Lamere.
+\newblock The million song dataset.
+\newblock In {\em Ismir}, volume~2, page~10, 2011.
+
+\bibitem{bunte2012general}
+K.~Bunte, M.~Biehl, and B.~Hammer.
+\newblock A general framework for dimensionality-reducing data visualization
+  mapping.
+\newblock {\em Neural Computation}, 24(3):771--804, 2012.
+
+\bibitem{celma2005foafing}
+{\`O}.~Celma, M.~Ram{\'\i}rez, and P.~Herrera.
+\newblock Foafing the music: A music recommendation system based on rss feeds
+  and user preferences.
+\newblock In {\em in ISMIR}. Citeseer, 2005.
+
+\bibitem{dieleman2013multiscale}
+S.~Dieleman and B.~Schrauwen.
+\newblock Multiscale approaches to music audio feature learning.
+\newblock In {\em 14th International Society for Music Information Retrieval
+  Conference (ISMIR-2013)}, pages 116--121. Pontif{\'\i}cia Universidade
+  Cat{\'o}lica do Paran{\'a}, 2013.
+
+\bibitem{izenman2013linear}
+A.~J. Izenman.
+\newblock Linear discriminant analysis.
+\newblock In {\em Modern multivariate statistical techniques}, pages 237--280.
+  Springer, 2013.
+
+\bibitem{li2003comparative}
+T.~Li, M.~Ogihara, and Q.~Li.
+\newblock A comparative study on content-based music genre classification.
+\newblock In {\em Proceedings of the 26th annual international ACM SIGIR
+  conference on Research and development in informaion retrieval}, pages
+  282--289. ACM, 2003.
+
+\bibitem{maaten2008visualizing}
+L.~v.~d. Maaten and G.~Hinton.
+\newblock Visualizing data using t-sne.
+\newblock {\em Journal of machine learning research}, 9(Nov):2579--2605, 2008.
+
+\bibitem{park2006context}
+H.-S. Park, J.-O. Yoo, and S.-B. Cho.
+\newblock A context-aware music recommendation system using fuzzy bayesian
+  networks with utility theory.
+\newblock In {\em International conference on Fuzzy systems and knowledge
+  discovery}, pages 970--979. Springer, 2006.
+
+\bibitem{rohit2011convolutional}
+S.~Rohit and S.~Chakravarthy.
+\newblock A convolutional neural network model of the neural responses of
+  inferotemporal cortex to complex visual objects.
+\newblock {\em BMC neuroscience}, 12(1):P35, 2011.
+
+\bibitem{tzanetakis2002musical}
+G.~Tzanetakis and P.~Cook.
+\newblock Musical genre classification of audio signals.
+\newblock {\em IEEE Transactions on speech and audio processing},
+  10(5):293--302, 2002.
+
+\bibitem{van2013deep}
+A.~Van~den Oord, S.~Dieleman, and B.~Schrauwen.
+\newblock Deep content-based music recommendation.
+\newblock In {\em Advances in neural information processing systems}, pages
+  2643--2651, 2013.
+
+\bibitem{van2012self}
+M.~M. Van~Hulle.
+\newblock Self-organizing maps.
+\newblock In {\em Handbook of Natural Computing}, pages 585--622. Springer,
+  2012.
+
+\bibitem{wold1987principal}
+S.~Wold, K.~Esbensen, and P.~Geladi.
+\newblock Principal component analysis.
+\newblock {\em Chemometrics and intelligent laboratory systems}, 2(1-3):37--52,
+  1987.
+
+\bibitem{zheng2017music}
+E.~Zheng, M.~Moh, and T.-S. Moh.
+\newblock Music genre classification: A n-gram based musicological approach.
+\newblock In {\em Advance Computing Conference (IACC), 2017 IEEE 7th
+  International}, pages 671--677. IEEE, 2017.
+
+\end{thebibliography}
