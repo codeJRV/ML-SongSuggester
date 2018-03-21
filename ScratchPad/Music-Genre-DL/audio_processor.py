@@ -15,9 +15,9 @@ def compute_melgram(audio_path):
     '''
 
     # mel-spectrogram parameters
-    SR = 12000
-    N_FFT = 512
-    N_MELS = 96
+    SR = 12000 # sampling rate of
+    N_FFT = 512  #length of the FFT window
+    N_MELS = 96  #
     HOP_LEN = 256
     DURA = 29.12  # to make it 1366 frame..
 

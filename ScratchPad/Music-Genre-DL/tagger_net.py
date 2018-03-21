@@ -86,28 +86,28 @@ def MusicTaggerCRNN(weights='msd', input_tensor=None):
     x = Convolution2D(64, 3, 3, border_mode='same', name='conv1', trainable=False)(x)
     x = BatchNormalization(axis=channel_axis, mode=0, name='bn1', trainable=False)(x)
     x = ELU()(x)
-    x = MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='pool1', trainable=False)(x)
+    x = MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='pool1', trainable=False, dim_ordering="tf")(x)
     x = Dropout(0.1, name='dropout1', trainable=False)(x)
 
     # Conv block 2
     x = Convolution2D(128, 3, 3, border_mode='same', name='conv2', trainable=False)(x)
     x = BatchNormalization(axis=channel_axis, mode=0, name='bn2', trainable=False)(x)
     x = ELU()(x)
-    x = MaxPooling2D(pool_size=(3, 3), strides=(3, 3), name='pool2', trainable=False)(x)
+    x = MaxPooling2D(pool_size=(3, 3), strides=(3, 3), name='pool2', trainable=False, dim_ordering="tf")(x)
     x = Dropout(0.1, name='dropout2', trainable=False)(x)
 
     # Conv block 3
     x = Convolution2D(128, 3, 3, border_mode='same', name='conv3', trainable=False)(x)
     x = BatchNormalization(axis=channel_axis, mode=0, name='bn3', trainable=False)(x)
     x = ELU()(x)
-    x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name='pool3', trainable=False)(x)
+    x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name='pool3', trainable=False, dim_ordering="tf")(x)
     x = Dropout(0.1, name='dropout3', trainable=False)(x)
 
     # Conv block 4
     x = Convolution2D(128, 3, 3, border_mode='same', name='conv4', trainable=False)(x)
     x = BatchNormalization(axis=channel_axis, mode=0, name='bn4', trainable=False)(x)
     x = ELU()(x)
-    x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name='pool4', trainable=False)(x)
+    x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name='pool4', trainable=False, dim_ordering="tf")(x)
     x = Dropout(0.1, name='dropout4', trainable=False)(x)
 
     # reshaping

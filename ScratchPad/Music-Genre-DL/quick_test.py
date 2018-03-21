@@ -33,7 +33,7 @@ test_songs_list = 'list_example.txt'
 
 
 # Initialize model
-model = MusicTaggerCRNN(weights=None, input_tensor=(1, 96, 1366))
+model = MusicTaggerCNN(weights=None, input_tensor=(1, 96, 1366))
 
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',
@@ -114,4 +114,3 @@ plt.xticks(index + bar_width / 2, tags)
 plt.tight_layout()
 fig.autofmt_xdate()
 plt.savefig('genres_prediction.png')
-
