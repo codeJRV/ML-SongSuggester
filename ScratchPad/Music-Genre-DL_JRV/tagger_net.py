@@ -2,7 +2,7 @@ from keras import backend as K
 from keras.layers import Input, Dense
 from keras.models import Model
 from keras.layers import Dense, Dropout, Reshape, Permute
-from keras.layers.convolutional import Convolution2D
+from keras.layers.convolutional import Conv2D
 from keras.layers.convolutional import MaxPooling2D, ZeroPadding2D
 from keras.layers.normalization import BatchNormalization
 from keras.layers.advanced_activations import ELU
@@ -30,7 +30,7 @@ def MusicTaggerCRNN(weights='msd', input_tensor=None):
     optionally loading weights pre-trained
     on Million Song Dataset. Note that when using TensorFlow,
     for best performance you should set
-    `image_dim_ordering="tf"` in your Keras config
+    `image_data_format="tf"` in your Keras config
     at ~/.keras/keras.json.
 
     The model and the weights are compatible with both
@@ -58,7 +58,9 @@ def MusicTaggerCRNN(weights='msd', input_tensor=None):
                          '(pre-training on Million Song Dataset).')
 
     # Determine proper input shape
-    if K.image_dim_ordering() == 'th':
+
+ 
+    if K.image_data_format() == 'channels_last':
         input_shape = (1, 96, 1366)
     else:
         input_shape = (96, 1366, 1)
@@ -69,7 +71,7 @@ def MusicTaggerCRNN(weights='msd', input_tensor=None):
         melgram_input = Input(shape=input_tensor)
 
     # Determine input axis
-    if K.image_dim_ordering() == 'th':
+    if K.image_data_format() == 'th':
         channel_axis = 1
         freq_axis = 2
         time_axis = 3
@@ -83,35 +85,35 @@ def MusicTaggerCRNN(weights='msd', input_tensor=None):
     x = BatchNormalization(axis=time_axis, name='bn_0_freq')(x)
 
     # Conv block 1
-    x = Convolution2D(64, 3, 3, border_mode='same', name='conv1', trainable=False)(x)
-    x = BatchNormalization(axis=channel_axis, mode=0, name='bn1', trainable=False)(x)
+    x = Conv2D(64, ( 3, 3 ), padding='same', name='conv1', trainable=False)(x)
+    x = BatchNormalization(axis=channel_axis,   name='bn1', trainable=False)(x)
     x = ELU()(x)
-    x = MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='pool1', trainable=False, dim_ordering="tf")(x)
+    x = MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='pool1', trainable=False )(x)
     x = Dropout(0.1, name='dropout1', trainable=False)(x)
 
     # Conv block 2
-    x = Convolution2D(128, 3, 3, border_mode='same', name='conv2', trainable=False)(x)
-    x = BatchNormalization(axis=channel_axis, mode=0, name='bn2', trainable=False)(x)
+    x = Conv2D(128, ( 3, 3 ), padding='same', name='conv2', trainable=False)(x)
+    x = BatchNormalization(axis=channel_axis,   name='bn2', trainable=False)(x)
     x = ELU()(x)
-    x = MaxPooling2D(pool_size=(3, 3), strides=(3, 3), name='pool2', trainable=False, dim_ordering="tf")(x)
+    x = MaxPooling2D(pool_size=(3, 3), strides=(3, 3), name='pool2', trainable=False )(x)
     x = Dropout(0.1, name='dropout2', trainable=False)(x)
 
     # Conv block 3
-    x = Convolution2D(128, 3, 3, border_mode='same', name='conv3', trainable=False)(x)
-    x = BatchNormalization(axis=channel_axis, mode=0, name='bn3', trainable=False)(x)
+    x = Conv2D(128, ( 3, 3 ), padding='same', name='conv3', trainable=False)(x)
+    x = BatchNormalization(axis=channel_axis,   name='bn3', trainable=False)(x)
     x = ELU()(x)
-    x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name='pool3', trainable=False, dim_ordering="tf")(x)
+    x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name='pool3', trainable=False )(x)
     x = Dropout(0.1, name='dropout3', trainable=False)(x)
 
     # Conv block 4
-    x = Convolution2D(128, 3, 3, border_mode='same', name='conv4', trainable=False)(x)
-    x = BatchNormalization(axis=channel_axis, mode=0, name='bn4', trainable=False)(x)
+    x = Conv2D(128, ( 3, 3 ), padding='same', name='conv4', trainable=False)(x)
+    x = BatchNormalization(axis=channel_axis,   name='bn4', trainable=False)(x)
     x = ELU()(x)
-    x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name='pool4', trainable=False, dim_ordering="tf")(x)
+    x = MaxPooling2D(pool_size=(4, 4), strides=(4, 4), name='pool4', trainable=False )(x)
     x = Dropout(0.1, name='dropout4', trainable=False)(x)
 
     # reshaping
-    if K.image_dim_ordering() == 'th':
+    if K.image_data_format() == 'th':
         x = Permute((3, 1, 2))(x)
     x = Reshape((15, 128))(x)
 
@@ -128,8 +130,8 @@ def MusicTaggerCRNN(weights='msd', input_tensor=None):
     else:
         # Load input
         x = Dense(50, activation='sigmoid', name='output')(x)
-        if K.image_dim_ordering() == 'tf':
-            raise RuntimeError("Please set image_dim_ordering == 'th'."
+        if K.image_data_format() == 'tf':
+            raise RuntimeError("Please set image_data_format == 'th'."
                                "You can set it at ~/.keras/keras.json")
         # Create model
         initial_model = Model(melgram_input, x)

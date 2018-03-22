@@ -3,7 +3,7 @@
 
 # Reference:
 
-- [Automatic tagging using deep convolutional neural networks](https://arxiv.org/abs/1606.00298)
+- [Automatic tagging using deep   convolutional neural networks](https://arxiv.org/abs/1606.00298)
 - [Music-auto_tagging-keras](https://github.com/keunwoochoi/music-auto_tagging-keras)
 
 '''
@@ -14,7 +14,7 @@ from keras import backend as K
 from keras.layers import Input, Dense
 from keras.models import Model
 from keras.layers import Dense, Dropout, Flatten
-from keras.layers.convolutional import Convolution2D
+from keras.layers.convolutional import Conv2D
 from keras.layers.convolutional import MaxPooling2D, ZeroPadding2D
 from keras.layers.normalization import BatchNormalization
 from keras.layers.advanced_activations import ELU
@@ -82,7 +82,10 @@ def MusicTaggerCNN(weights='msd', input_tensor=None):
     if input_tensor is None:
         melgram_input = Input(shape=input_shape)
     else:
-        melgram_input = Input(shape=input_tensor)
+        if not K.is_keras_tensor(input_tensor):
+            melgram_input = Input(tensor=input_tensor, shape=input_shape)
+        else:
+            melgram_input = input_tensor
 
     # Determine input axis
     if K.image_dim_ordering() == 'th':
@@ -98,32 +101,32 @@ def MusicTaggerCNN(weights='msd', input_tensor=None):
     x = BatchNormalization(axis=time_axis, name='bn_0_freq', trainable=False)(melgram_input)
 
     # Conv block 1
-    x = Convolution2D(32, 3, 3, border_mode='same', name='conv1', trainable=False)(x)
-    x = BatchNormalization(axis=channel_axis, mode=0, name='bn1', trainable=False)(x)
+    x = Conv2D(32, (3, 3), padding='same', name='conv1', trainable=False)(x)
+    x = BatchNormalization(axis=channel_axis,   name='bn1', trainable=False)(x)
     x = ELU()(x)
     x = MaxPooling2D(pool_size=(2, 4), name='pool1', trainable=False)(x)
 
     # Conv block 2
-    x = Convolution2D(128, 3, 3, border_mode='same', name='conv2', trainable=False)(x)
-    x = BatchNormalization(axis=channel_axis, mode=0, name='bn2', trainable=False)(x)
+    x = Conv2D(128, (3, 3), padding='same', name='conv2', trainable=False)(x)
+    x = BatchNormalization(axis=channel_axis,   name='bn2', trainable=False)(x)
     x = ELU()(x)
     x = MaxPooling2D(pool_size=(2, 4), name='pool2')(x)
 
     # Conv block 3
-    x = Convolution2D(128, 3, 3, border_mode='same', name='conv3', trainable=False)(x)
-    x = BatchNormalization(axis=channel_axis, mode=0, name='bn3', trainable=False)(x)
+    x = Conv2D(128, (3, 3), padding='same', name='conv3', trainable=False)(x)
+    x = BatchNormalization(axis=channel_axis,   name='bn3', trainable=False)(x)
     x = ELU()(x)
     x = MaxPooling2D(pool_size=(2, 4), name='pool3')(x)
 
     # Conv block 4
-    x = Convolution2D(192, 3, 3, border_mode='same', name='conv4', trainable=False)(x)
-    x = BatchNormalization(axis=channel_axis, mode=0, name='bn4', trainable=False)(x)
+    x = Conv2D(192, (3, 3), padding='same', name='conv4', trainable=False)(x)
+    x = BatchNormalization(axis=channel_axis,   name='bn4', trainable=False)(x)
     x = ELU()(x)
     x = MaxPooling2D(pool_size=(3, 5), name='pool4', trainable=False)(x)
 
     # Conv block 5
-    x = Convolution2D(256, 3, 3, border_mode='same', name='conv5')(x)
-    x = BatchNormalization(axis=channel_axis, mode=0, name='bn5')(x)
+    x = Conv2D(256, (3, 3), padding='same', name='conv5')(x)
+    x = BatchNormalization(axis=channel_axis,   name='bn5')(x)
     x = ELU()(x)
     x = MaxPooling2D(pool_size=(4, 4), name='pool5')(x)
 
