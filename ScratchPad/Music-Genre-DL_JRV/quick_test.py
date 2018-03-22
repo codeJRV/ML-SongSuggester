@@ -33,7 +33,7 @@ test_songs_list = 'list_example.txt'
 
 
 # Initialize model
-model = MusicTaggerCNN(weights=None, input_tensor=(1, 96, 1366))
+model = MusicTaggerCRNN(weights=None, input_tensor=(1, 96, 1366))
 
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',
