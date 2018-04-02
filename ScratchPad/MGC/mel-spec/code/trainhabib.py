@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     # Parameters
     learning_rate = 0.001
-    training_iters = 100000
+    training_iters = 10000
     batch_size = 64
     display_step = 1
     train_size = 800
@@ -46,12 +46,14 @@ if __name__ == "__main__":
         data = pickle.loads(content)
     data = np.asarray(data)
     data = data
+    print(data[0].shape)
     data = data.reshape((data.shape[0], n_input))
 
     labels = []
     with open("../../dataset/mel-spec/input/labels", 'r') as f:
         content = f.read()
         labels = pickle.loads(content)
+    #print(labels[0:100])
 
     # #Hack
     # data = np.random.random((1000, n_input))
@@ -61,7 +63,7 @@ if __name__ == "__main__":
     permutation = np.random.permutation(len(data))
     data = data[permutation]
     labels = labels[permutation]
-
+    print(labels[0:100])
     # Split Train/Test
     trainData = data[:train_size]
     trainLabels = labels[:train_size]
@@ -69,7 +71,7 @@ if __name__ == "__main__":
     testData = data[train_size:]
     testLabels = labels[train_size:]
 
-
+'''
     # tf Graph input
     x = tf.placeholder(tf.float32, [None, n_input])
     y = tf.placeholder(tf.float32, [None, n_classes])
@@ -150,13 +152,13 @@ if __name__ == "__main__":
     pred = conv_net(x, weights, biases, keep_prob)
 
     # Define loss and optimizer
-    '''with tf.device("/gpu:0"):
+    with tf.device("/gpu:0"):
         cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=pred, labels=y))
         optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
         # Evaluate model
         correct_pred = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
-        accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))'''
+        accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=pred, labels=y))
     optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
     # Evaluate model
@@ -202,4 +204,4 @@ if __name__ == "__main__":
         # Calculate accuracy
         print("Testing Accuracy:", sess.run(accuracy, feed_dict={x: testData,
                                                                  y: testLabels,
-                                                                 keep_prob: 1.}))
+                                                                 keep_prob: 1.}))'''
