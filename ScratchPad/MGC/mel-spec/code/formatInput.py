@@ -78,10 +78,10 @@ if __name__ == "__main__":
                 i += 1
 
     #save data and lables
-    with open("../../dataset/input/data", 'w') as f:
+    with open("../../dataset/mel-spec/input/data", 'w') as f:
         f.write(pickle.dumps(data.values()))
 
-    with open("../../dataset/input/labels", 'w') as f:
+    with open("../../dataset/mel-spec/input/labels", 'w') as f:
         f.write(pickle.dumps(array(labels)))
 
     # print sizes
