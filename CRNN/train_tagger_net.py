@@ -24,7 +24,7 @@ LOAD_MODEL = 0
 LOAD_WEIGHTS = 1
 
 # Dataset
-MULTIFRAMES = 1
+MULTIFRAMES = 0
 SAVE_DB = 0
 LOAD_DB = 0
 
@@ -44,7 +44,7 @@ model_name = "crnn_net_adam_ours"
 model_path = "models_trained/" + model_name + "/"
 weights_path = "models_trained/" + model_name + "/weights/"
 
-train_songs_list = 'lists/train_songs_list_ours.txt'
+train_songs_list = 'lists/full_song_list.txt'
 test_songs_list = 'lists/test_songs_list_ours.txt'
 #test_songs_list = 'lists/test_songs_gtzan_list.txt'
 
