@@ -25,8 +25,8 @@ LOAD_WEIGHTS = 1
 
 # Dataset
 MULTIFRAMES = 0
-SAVE_DB = 0
-LOAD_DB = 1
+SAVE_DB = 1
+LOAD_DB = 0
 
 # Model parameters
 nb_classes = 10

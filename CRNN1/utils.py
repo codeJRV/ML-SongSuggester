@@ -36,8 +36,8 @@ def traintestsplit(all_song_path,split_ratio):
     permutation = np.random.permutation(len(song_paths))
     song_paths = song_paths[permutation]
     labels = labels[permutation]
-    song_paths = song_paths[:100]
-    labels = labels[:100]
+    song_paths = song_paths
+    labels = labels
     train_size=int(split_ratio*len(song_paths))
 
     trainsongs = song_paths[:train_size]
